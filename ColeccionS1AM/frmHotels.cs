@@ -36,7 +36,6 @@ namespace GestioHotels
                 txtNumHab.Enabled = false;
                 MostrarCampsHotel();
             }
-
         }
 
         private void MostrarCampsHotel()
@@ -74,7 +73,7 @@ namespace GestioHotels
             lstClients.DataSource = null;
             lstClients.DisplayMember = "NomClient";
             lstClients.ValueMember = "CodiClient";
-            lstClients.DataSource = gestio.ClientsList; //posar lists en private i fer una funcio que retorni la llista?
+            lstClients.DataSource = gestio.ClientsList;
         }
 
         private void ActualitzarLstBoxHotels()
@@ -82,7 +81,7 @@ namespace GestioHotels
             lstHotels.DataSource = null;
             lstHotels.DisplayMember = "NomHotel";
             lstHotels.ValueMember = "CodiHotel";
-            lstHotels.DataSource = gestio.HotelsList; //posar lists en private i fer una funcio que retorni la llista?
+            lstHotels.DataSource = gestio.HotelsList; 
         }
 
         private void lstClients_DoubleClick(object sender, EventArgs e)
@@ -109,7 +108,6 @@ namespace GestioHotels
             Clients clientActual = gestio.ClientActual;
             txtSoci.Text = clientActual.CodiClient;
             txtNomClient.Text = clientActual.NomClient;
-            //txtCognomClient.Text = clientActual.CognomClient;
             txtPobClient.Text = clientActual.PoblacioClient;
             txtEdat.Text = clientActual.EdatClient.ToString();            
         }
@@ -117,7 +115,6 @@ namespace GestioHotels
         {
             txtSoci.Text = "";
             txtNomClient.Text = "";
-            //txtCognomClient.Text = "";
             txtPobClient.Text = "";
             txtEdat.Text = "";
         }
@@ -156,7 +153,6 @@ namespace GestioHotels
         {
             txtSoci.Enabled = true;
             txtNomClient.Enabled = true;
-            //txtCognomClient.Enabled = true;
             txtPobClient.Enabled = true;
             txtEdat.Enabled = true;
         }
@@ -170,7 +166,6 @@ namespace GestioHotels
         {
             string codiClient = txtSoci.Text;
             string nomClient = txtNomClient.Text;
-            //string cognomClient = txtCognom.Text;
             string pobClient = txtPobClient.Text;
             if(int.TryParse(txtEdat.Text, out int edatClient))
             {
@@ -222,7 +217,6 @@ namespace GestioHotels
         {
             string codiHotel = txtCodi.Text;
             string nomHotel = txtNomHotel.Text;
-            //string cognomClient = txtCognom.Text;
             string pobHotel = txtPobHotel.Text;
             if (int.TryParse(txtNumHab.Text, out int numHabitacions))
             {

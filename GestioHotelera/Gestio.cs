@@ -51,16 +51,16 @@ namespace ClassesHotels
         #endregion
 
         #region CRUD Hotels   
-        //public bool BuscarReservaHotel(string codiHotel)
-        //{
-        //    bool existeix = false;
-        //    Reserves reservaTrobada = reservesList.Find(x => x.CodiHotel == codiHotel);
-        //    if(reservaTrobada != null)
-        //    {
-        //        existeix = true;
-        //    }
-        //    return existeix;
-        //}
+        public bool BuscarReservaHotel(string codiHotel)
+        {
+            bool existeix = false;
+            Reserves reservaTrobada = reservesList.Find(x => x.CodiHotel == codiHotel);
+            if (reservaTrobada != null)
+            {
+                existeix = true;
+            }
+            return existeix;
+        }
         public void ActualitzarHotel(string codiHotel, string nomHotel, string pobHotel, int numHabitacions)
         {
             HotelActual.CodiHotel = codiHotel;
@@ -91,12 +91,15 @@ namespace ClassesHotels
         #region Reserves
         public void AfegirReserva(DateTime dataEntrada, int nits)
         {
-            Reserves novaReserva = new Reserves();
-            novaReserva.CodiHotel = HotelActual.CodiHotel;
-            novaReserva.CodiClient = ClientActual.CodiClient;
-            novaReserva.DataEntrada = dataEntrada.Date;
-            novaReserva.NumDies = nits;
-            reservesList.Add(novaReserva);
+            if(HotelActual!= null && ClientActual != null)
+            {
+                Reserves novaReserva = new Reserves();
+                novaReserva.CodiHotel = HotelActual.CodiHotel;
+                novaReserva.CodiClient = ClientActual.CodiClient;
+                novaReserva.DataEntrada = dataEntrada.Date;
+                novaReserva.NumDies = nits;
+                reservesList.Add(novaReserva);
+            }            
         }
         #endregion
     }
